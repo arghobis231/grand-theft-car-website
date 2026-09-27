@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Chakra Petch', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #09090b;
+    color: #f4f4f5;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-racing {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom subtle highway dash animation */
+@keyframes roadMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100px;
+  }
+}
+
+@keyframes reverseRoadMove {
+  0% {
+    background-position: 0 100px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes carSway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+.animate-road {
+  animation: roadMove 1.2s linear infinite;
+}
+
+.animate-road-fast {
+  animation: roadMove 0.6s linear infinite;
+}
+
+.animate-road-reverse {
+  animation: reverseRoadMove 0.8s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-car-sway {
+  animation: carSway 2s ease-in-out infinite;
+}
+
+/* Road perspective container */
+.road-perspective {
+  perspective: 600px;
+  perspective-origin: 50% 15%;
+}
+
+.road-surface {
+  transform: rotateX(48deg);
+  transform-origin: 50% 100%;
+}
+
+/* Subtle carbon / asphalt texture */
+.asphalt-texture {
+  background-color: #0d0d11;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+/* Stage distinct atmospheres */
+.stage-city {
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+              linear-gradient(to bottom, #090e17, #07090e);
+}
+
+.stage-countryside {
+  background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.15), transparent 70%),
+              linear-gradient(to bottom, #160d09, #09080a);
+}
+
+.stage-mountain {
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.12), transparent 70%),
+              linear-gradient(to bottom, #0b0c1c, #07080f);
+}
+
+.stage-desert {
+  background: radial-gradient(circle at 50% 0%, rgba(234, 88, 12, 0.15), transparent 70%),
+              linear-gradient(to bottom, #180c05, #0a0604);
+}
+
+.stage-neon {
+  background: radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.15), transparent 70%),
+              radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.1), transparent 60%),
+              linear-gradient(to bottom, #110719, #07030b);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-road,
+  .animate-road-fast,
+  .animate-road-reverse,
+  .animate-pulse-glow,
+  .animate-car-sway {
+    animation: none !important;
+  }
+}

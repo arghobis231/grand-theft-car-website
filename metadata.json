@@ -1,0 +1,6 @@
+{
+  "name": "Grand Theft Car",
+  "description": "An adrenaline-fueled retro highway racing experience for Android. Drive against incoming traffic, change lanes, and survive police pursuits across five unique stages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
